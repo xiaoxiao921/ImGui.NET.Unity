@@ -1,13 +1,16 @@
-﻿#define UIMGUI_USE_UNITY_MATHEMATICS
-
+﻿#if USE_IMNODES
 using imnodesNET;
+#endif
+
+#if USE_IMNODES
 using ImPlotNET;
-using System;
+#endif
+
 using System.Linq;
+using UnityEngine;
 using Veldrid;
 using Veldrid.Sdl2;
 using Veldrid.StartupUtilities;
-using UnityEngine;
 
 namespace ImGuiNET
 {
@@ -17,7 +20,7 @@ namespace ImGuiNET
 		private static GraphicsDevice _gd;
 		private static CommandList _cl;
 		private static ImGuiController _controller;
-		private static MemoryEditor _memoryEditor;
+		//private static MemoryEditor _memoryEditor;
 
 		// UI state
 		private static float _f = 0.0f;
@@ -48,7 +51,7 @@ namespace ImGuiNET
 			};
 			_cl = _gd.ResourceFactory.CreateCommandList();
 			_controller = new ImGuiController(_gd, _gd.MainSwapchain.Framebuffer.OutputDescription, _window.Width, _window.Height);
-			_memoryEditor = new MemoryEditor();
+			//_memoryEditor = new MemoryEditor();
 			System.Random random = new System.Random();
 			_memoryEditorData = Enumerable.Range(0, 1024).Select(i => (byte)random.Next(255)).ToArray();
 
@@ -200,9 +203,11 @@ namespace ImGuiNET
 
 			if (_showMemoryEditor)
 			{
-				_memoryEditor.Draw("Memory Editor", _memoryEditorData, _memoryEditorData.Length);
+				ImGui.Text("Memory editor currently supported.");
+				//_memoryEditor.Draw("Memory Editor", _memoryEditorData, _memoryEditorData.Length);
 			}
 
+#if USE_IMPLOT
 			if (ImGui.Begin("Plot Test"))
 			{
 				ImGui.ColorEdit3("clear color", ref clear_color);
@@ -211,7 +216,9 @@ namespace ImGuiNET
 
 				ImGui.End();
 			}
+#endif
 
+#if USE_IMNODES
 			if (ImGui.Begin("Nodes Test"))
 			{
 				imnodes.BeginNodeEditor();
@@ -234,6 +241,7 @@ namespace ImGuiNET
 				imnodes.EndNodeEditor();
 				ImGui.End();
 			}
+#endif
 		}
 	}
 }
