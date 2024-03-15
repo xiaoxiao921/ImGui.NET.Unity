@@ -6,7 +6,6 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
-
   <ItemGroup>
     <ProjectReference Include="..\ImGui.NET\ImGui.NET.csproj" />
     <PackageReference Include="Veldrid" Version="4.8.0" />
