@@ -1,5 +1,5 @@
 using System;
-using UnityEngine;
+
 using System.Runtime.CompilerServices;
 using System.Text;
 using ImGuiNET;
@@ -67,7 +67,7 @@ namespace ImPlotNET
         public ImPlotStylePtr(ImPlotStyle* nativePtr) => NativePtr = nativePtr;
         public ImPlotStylePtr(IntPtr nativePtr) => NativePtr = (ImPlotStyle*)nativePtr;
         public static implicit operator ImPlotStylePtr(ImPlotStyle* nativePtr) => new ImPlotStylePtr(nativePtr);
-        public static implicit operator ImPlotStyle* (ImPlotStylePtr wrappedPtr) => wrappedPtr.NativePtr;
+        public static implicit operator ImPlotStyle*(ImPlotStylePtr wrappedPtr) => wrappedPtr.NativePtr;
         public static implicit operator ImPlotStylePtr(IntPtr nativePtr) => new ImPlotStylePtr(nativePtr);
         public ref float LineWeight => ref Unsafe.AsRef<float>(&NativePtr->LineWeight);
         public ref int Marker => ref Unsafe.AsRef<int>(&NativePtr->Marker);

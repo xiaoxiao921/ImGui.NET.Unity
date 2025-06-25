@@ -12,7 +12,6 @@
     <PackageReference Include="Veldrid.StartupUtilities" Version="4.8.0" />
     <ProjectReference Include="..\imnodes.NET\imnodes.NET.csproj" />
     <ProjectReference Include="..\ImPlot.NET\ImPlot.NET.csproj" />
-    <ProjectReference Include="..\TestDotNetStandardLib\TestDotNetStandardLib.csproj" />
   </ItemGroup>
 
   <ItemGroup>

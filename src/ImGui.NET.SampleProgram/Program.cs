@@ -7,7 +7,7 @@ using ImPlotNET;
 #endif
 
 using System.Linq;
-using UnityEngine;
+
 using Veldrid;
 using Veldrid.Sdl2;
 using Veldrid.StartupUtilities;

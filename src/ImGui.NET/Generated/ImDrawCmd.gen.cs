@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 using System.Runtime.CompilerServices;
 using System.Text;
 
@@ -21,7 +20,7 @@ namespace ImGuiNET
         public ImDrawCmdPtr(ImDrawCmd* nativePtr) => NativePtr = nativePtr;
         public ImDrawCmdPtr(IntPtr nativePtr) => NativePtr = (ImDrawCmd*)nativePtr;
         public static implicit operator ImDrawCmdPtr(ImDrawCmd* nativePtr) => new ImDrawCmdPtr(nativePtr);
-        public static implicit operator ImDrawCmd* (ImDrawCmdPtr wrappedPtr) => wrappedPtr.NativePtr;
+        public static implicit operator ImDrawCmd*(ImDrawCmdPtr wrappedPtr) => wrappedPtr.NativePtr;
         public static implicit operator ImDrawCmdPtr(IntPtr nativePtr) => new ImDrawCmdPtr(nativePtr);
         public ref Vector4 ClipRect => ref Unsafe.AsRef<Vector4>(&NativePtr->ClipRect);
         public ref IntPtr TextureId => ref Unsafe.AsRef<IntPtr>(&NativePtr->TextureId);
